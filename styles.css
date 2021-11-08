@@ -1,0 +1,40 @@
+a{
+    /*Trocar cor dos links */
+        color: #f8f1f1;
+        text-decoration: none;
+    }
+    /*Undeline nos links quando passa o mouse */
+    a:hover{
+        text-decoration:underline ;
+    }
+
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    margin-bottom: 2rem;
+
+}
+
+header, footer {
+    width: 100%;
+}
+.card-img-top {
+    width: 50% !important;
+    height: auto !important;
+    margin: 0 auto;
+}
+
+footer {
+    color: #fdfdfd;
+    font-size: 1rem;
+    padding: 0px;
+    text-align: center;
+  }
