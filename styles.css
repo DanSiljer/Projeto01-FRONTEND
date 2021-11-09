@@ -12,6 +12,9 @@ html, body {
     height: 100%;
 }
 body {
+    background-image: url(img/bandeira.jpg) ;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -27,13 +30,26 @@ header, footer {
     width: 100%;
 }
 .card-img-top {
-    width: 50% !important;
+    width: 70% !important;
     height: auto !important;
     margin: 0 auto;
+    margin-top: 10px;
+}
+.card-text {
+    font-family: 'Courier New', Courier, monospace;
+    color: #070606;
+}
+.card-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20pt;
+    font-style: normal;
+    color: #070707;
+    /* -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(253, 251, 251); */
 }
 
 footer {
-    color: #fdfdfd;
+    color: #050505;
     font-size: 1rem;
     padding: 0px;
     text-align: center;
