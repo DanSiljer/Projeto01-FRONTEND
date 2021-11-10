@@ -27,7 +27,8 @@ const getPresidentes= async () => {
             <div class="card">
             <img src="${presidente.img}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">${presidente.nome} ${presidente.partido}</h5>
+                <h2>${presidente.nome}</h2>
+                <h2 class="card-title">${presidente.partido}</h2>
                 <span class="badge bg-primary">${presidente.governo}</span>
                 <p class="card-text"> ${presidente.ano}</p>
                 <p class="card-text">${presidente.descricao}</p>
@@ -42,6 +43,7 @@ const getPresidentes= async () => {
     })
 }
 
+// [POST] - cadastrar novo
 const submitForm = async (event) => {
     event.preventDefault();
 
@@ -53,7 +55,14 @@ const submitForm = async (event) => {
         governo: governo.value,
         descricao: descricao.value
     }
-  
+     // construir como vai ser a minha requisicao.
+  const request = new Request(`${apiUrl}/add`, {
+    method: 'POST',
+    body: JSON.stringify(presidente),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  })
 
     if(edicao) {
         putPresidente(presidente, idEdicao);
@@ -139,6 +148,7 @@ const clearFields = () => {
     ano.value = '';
     governo.value = '';
     descricao.value = '';
+    getPresidentes();
 }
 
 getPresidentes();
