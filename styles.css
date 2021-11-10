@@ -12,15 +12,13 @@ html, body {
     height: 100%;
 }
 body {
-    background-image: url(img/bandeira.jpg) ;
-    background-repeat: no-repeat;
+    background-image: url(img/abstract-brazil.jpg) ;
+    /* background-repeat: no-repeat; */
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    filter: brightness(50%);
-  
 }
 
 main {
