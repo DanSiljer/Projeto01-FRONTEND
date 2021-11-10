@@ -15,11 +15,12 @@ let governo = document.getElementById('governo');
 let descricao = document.getElementById('descricao');
 
 
+
 const getPresidentes= async () => {
     const response = await fetch(apiUrl)
     const presidentes = await response.json();
 
-    // console.log(presidentes);
+    lista.innerHTML = '';
 
     presidentes.map((presidente) => {
         lista.insertAdjacentHTML('beforeend', `
@@ -28,7 +29,7 @@ const getPresidentes= async () => {
             <img src="${presidente.img}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h2>${presidente.nome}</h2>
-                <h2 class="card-title">${presidente.partido}</h2>
+                <p class="card-text">${presidente.partido}</p>
                 <span class="badge bg-primary">${presidente.governo}</span>
                 <p class="card-text"> ${presidente.ano}</p>
                 <p class="card-text">${presidente.descricao}</p>
@@ -43,7 +44,7 @@ const getPresidentes= async () => {
     })
 }
 
-// [POST] - cadastrar novo
+// [POST] - cadastrar
 const submitForm = async (event) => {
     event.preventDefault();
 
@@ -71,7 +72,7 @@ const submitForm = async (event) => {
     }
 
     clearFields();
-    lista.innerHTML = '';
+
 }
 
 const createPresidente = async(presidente) => {
@@ -86,11 +87,12 @@ const createPresidente = async(presidente) => {
     const response = await fetch(request);
     const result = await response.json();
     alert(result.message)
-    getPresidentes();
 
+    clearFields();
+  
 }
 
-const putPresidentes = async(presidente, id) => {
+const putPresidente = async(presidente, id) => {
     const request = new Request(`${apiUrl}/edit/${id}`, {
         method:  'PUT',
         body: JSON.stringify(presidente),
@@ -104,10 +106,12 @@ const putPresidentes = async(presidente, id) => {
 
     edicao = false;
     idEdicao = 0;
-    getPresidentes();
+
+    clearFields();
+    
 }
 
-const deletePresidentes = async (id) => {
+const deletePresidente = async (id) => {
     const request = new Request(`${apiUrl}/delete/${id}`, {
         method: 'DELETE'
     })
@@ -116,10 +120,10 @@ const deletePresidentes = async (id) => {
     const result = await response.json();
 
     alert(result.message);
-    
-    lista.innerHTML = '';
-    getPresidentes();
+
+    getPresidentes(); 
 }
+
 
 
 const getPresidenteById = async (id) => {
@@ -149,6 +153,9 @@ const clearFields = () => {
     governo.value = '';
     descricao.value = '';
     getPresidentes();
+
+  
 }
 
-getPresidentes();
+getPresidentes(); 
+

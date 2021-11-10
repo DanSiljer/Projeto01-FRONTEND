@@ -13,7 +13,6 @@ html, body {
 }
 body {
     background-image: url(img/abstract-brazil.jpg) ;
-    /* background-repeat: no-repeat; */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -39,11 +38,12 @@ header, footer {
 .card-text {
     font-family: 'Courier New', Courier, monospace;
     color: #070606;
+    text-align: justify;
 }
 .card-title {
     font-family: 'Courier New', Courier, monospace;
     font-size: 20pt;
-    font-style: normal;
+    font-style: center;
     color: #070707;
     /* -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgb(253, 251, 251); */
